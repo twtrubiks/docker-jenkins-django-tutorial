@@ -8,14 +8,14 @@
 
 [Django-REST-framework 基本教學 - 從無到有 DRF-Beginners-Guide 📝](https://github.com/twtrubiks/django-rest-framework-tutorial)
 
-* [Youtube Tutorial PART 1 - CI ( Continuous Integration ) / CD (Continuous Delivery / Continuous Deployment) 介紹](xx)
-* [Youtube Tutorial PART 2 - Docker + Jenkins + Django + Postgres 設定](xx)
-* [Youtube Tutorial PART 3 - Jenkins 基本設定](xx)
-* [Youtube Tutorial PART 4 - Jenkins + GitHub Integration 實戰](xx)
-* [Youtube Tutorial PART 5 - Jenkins + GitHub Webhooks 實戰](xx)
-* [Youtube Tutorial PART 6 - Jenkins + BitBucket private repo 實戰](xx)
-* [Youtube Tutorial PART 7 - Jenkins + Notifications - Send Email 實戰](xx)
-* [Youtube Tutorial PART 8 - Jenkins + Slack 實戰](xx)
+* [Youtube Tutorial PART 1 - CI ( Continuous Integration ) / CD (Continuous Delivery / Continuous Deployment) 介紹](https://youtu.be/wJlE0aFluY4)
+* [Youtube Tutorial PART 2 - Docker + Jenkins + Django + Postgres 設定](https://youtu.be/fjwIVCywX2A)
+* [Youtube Tutorial PART 3 - Jenkins 基本設定](https://youtu.be/27rmiKGrG2M)
+* [Youtube Tutorial PART 4 - Jenkins + GitHub Integration 實戰](https://youtu.be/AYgw5NXAeNY)
+* [Youtube Tutorial PART 5 - Jenkins + GitHub Webhooks 實戰](https://youtu.be/ymfTEPxKRqQ)
+* [Youtube Tutorial PART 6 - Jenkins + BitBucket private repo 實戰](https://youtu.be/S6Hfcm_xrnE)
+* [Youtube Tutorial PART 7 - Jenkins + Notifications - Send Email 實戰](https://youtu.be/MWWBleOtqVk)
+* [Youtube Tutorial PART 8 - Jenkins + Slack 實戰](https://youtu.be/jmVRb81KpUk)
 
 ## CI / CD 介紹
 
