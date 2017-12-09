@@ -174,7 +174,7 @@ volumes:
 
 > docker-compose up
 
-直接瀏覽 [http://0.0.0.0:8080/](http://0.0.0.0:8080/)，會看到下圖
+直接瀏覽 [http://localhost:8080/](http://localhost:8080/)，會看到下圖
 
 ![](https://i.imgur.com/nMXQc7Z.jpg)
 
@@ -260,7 +260,7 @@ python manage.py createsuperuser
 
 ![](https://i.imgur.com/jZXjdjC.png)
 
-執行完畢之後，我們就可以到 [http://0.0.0.0:8002/api/music/](http://0.0.0.0:8002/api/music/) 瀏覽。
+執行完畢之後，我們就可以到 [http://localhost:8002/api/music/](http://localhost:8002/api/music/) 瀏覽。
 
 ![](https://i.imgur.com/lzsHjlL.png)
 
