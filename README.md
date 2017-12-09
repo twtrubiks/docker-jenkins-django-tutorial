@@ -17,8 +17,6 @@
 * [Youtube Tutorial PART 7 - Jenkins + Notifications - Send Email 實戰](xx)
 * [Youtube Tutorial PART 8 - Jenkins + Slack 實戰](xx)
 
-整合 Jenkins + GitHub :satisfied:
-
 ## CI / CD 介紹
 
 在開始介紹前，先帶大家了解幾個名詞，相信大家一定常常聽到別人說 CI / CD，
@@ -85,7 +83,9 @@ CI 不只對 developer 有好處，也對管理者有好處，可以隨時監控
 
 方法一： 同步到你的 host 本機
 
-[docker-compose.yml](xxx)
+可參考 [jenkins_host](https://github.com/twtrubiks/docker-jenkins-django-tutorial/tree/master/jenkins_host)
+
+[docker-compose.yml](https://github.com/twtrubiks/docker-jenkins-django-tutorial/blob/master/jenkins_host/docker-compose.yml)
 
 ```yml
 version: '3'
@@ -98,7 +98,7 @@ services:
       ports:
         - "5432:5432"
       volumes:
-        - pgdata_jenkins2:/var/lib/postgresql/data/
+        - pgdata_jenkins_host:/var/lib/postgresql/data/
 
     api:
       build: ./api
@@ -107,7 +107,7 @@ services:
       ports:
         - "8002:8000"
       volumes:
-        - ./workspace/workspace/test/api:/docker_api
+        - ./workspace/workspace/demo/api:/docker_api
       depends_on:
         - db
 
@@ -120,14 +120,14 @@ services:
           volumes:
               - ./workspace:/var/jenkins_home
 volumes:
-    pgdata_jenkins2:
+    pgdata_jenkins_host:
 ```
 
 方法二： Named volume
 
-我將這個範例放到分支上
+可參考 [jenkins_volume](https://github.com/twtrubiks/docker-jenkins-django-tutorial/tree/master/jenkins_volume)
 
-[docker-compose.yml](xxx)
+[docker-compose.yml](https://github.com/twtrubiks/docker-jenkins-django-tutorial/blob/master/jenkins_volume/docker-compose.yml)
 
 ```yml
 version: '3'
@@ -145,11 +145,11 @@ services:
     api:
       build: ./api
       restart: always
-      command: python /var/jenkins_home/workspace/test/api/manage.py runserver 0.0.0.0:8000
+      command: python /var/jenkins_home/workspace/demo/api/manage.py runserver 0.0.0.0:8000
       ports:
         - "8002:8000"
       volumes:
-        - api_data_jenkins:/docker_api
+        - api_data:/docker_api
         - jenkins_data:/var/jenkins_home
       depends_on:
         - db
@@ -163,7 +163,7 @@ services:
           volumes:
               - jenkins_data:/var/jenkins_home
 volumes:
-    api_data_jenkins:
+    api_data:
     jenkins_data:
     pgdata_jenkins:
 ```
@@ -472,7 +472,7 @@ Add Credential
 
 這次和大家介紹 Jenkins，相信大家一定覺得 Jenkins 超棒 :heart_eyes: ，我也只介紹比較基本的功能，如果要全部介紹完，
 
-要花好多時間 (默默研究中:sweat_smile:)。如果你是沒有導入CI 的團隊，我會建議先導入幾個重要的部份就好，整個流程不一
+要花好多時間 ( 默默研究中:sweat_smile: )。如果你是沒有導入CI 的團隊，我會建議先導入幾個重要的部份就好，整個流程不一
 
 定要完全的複製到你們的團隊上，可以一小部分一小部分慢慢導入，這樣整個團隊的反彈也不會那麼大。
 
