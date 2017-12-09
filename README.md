@@ -288,6 +288,14 @@ port 設定 8080 是因為 jenkins 的 port 為 8080
 
 ![](https://i.imgur.com/MYv5Z59.png)
 
+點選組態
+
+![](https://i.imgur.com/vbQrNkF.png)
+
+找到建置觸發程序，並選擇 GitHub hook trigger for GITScm polling
+
+![](https://i.imgur.com/NXtvmVZ.png)
+
 接著到 [Docker 基本教學 - 從無到有 Docker-Beginners-Guide 教你用 Docker 建立 Django + PostgreSQL](https://github.com/twtrubiks/docker-tutorial)
 
 專案中設定 Webhooks ( 你可以直接 fork 這個專案去改 )
