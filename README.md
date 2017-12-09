@@ -270,7 +270,7 @@ python manage.py createsuperuser
 
 也就是設定一組 token，例如 twtrubiks，
 
-當我輸入網址 [xx](xx) 就會自動開始 build 。
+當我輸入網址 [http://localhost:8080/job/demo/build?token=twtrubiks](http://localhost:8080/job/demo/build?token=twtrubiks) 就會自動開始 build 。
 
 ### Jenkins + GitHub Webhooks 實戰
 
