@@ -16,6 +16,10 @@
 * [Youtube Tutorial PART 6 - Jenkins + BitBucket private repo 實戰](https://youtu.be/S6Hfcm_xrnE)
 * [Youtube Tutorial PART 7 - Jenkins + Notifications - Send Email 實戰](https://youtu.be/MWWBleOtqVk)
 * [Youtube Tutorial PART 8 - Jenkins + Slack 實戰](https://youtu.be/jmVRb81KpUk)
+* [Youtube Tutorial PART 9 - Jenkins Job chaining 實戰](xxx)
+* [Youtube Tutorial PART 10 - Jenkins + Build Delivery tutorial](xxx)
+* [Youtube Tutorial PART 11 - Jenkins + Build Pipeline tutorial](xxx)
+* [Youtube Tutorial PART 12 - Jenkins +  Remote access API tutorial](xxx)
 
 ## CI / CD 介紹
 
@@ -475,6 +479,165 @@ Add Credential
 回到你的 slack 你會發現成功了 :satisfied:
 
 ![](https://i.imgur.com/qLLEDsa.png)
+
+## 軟體版本週期
+
+既然都對 CI / CD 有基本的認識了，那麼你一定要再了解軟體版本週期。這個是什麼呢？我相信
+
+大家一定常常聽導什麼 Alpha Beta 之類的，其實這就是指軟體版本的週期，以下我將簡單介紹他
+
+的週期。
+
+### Alpha
+
+Alpha（ α ）版本基本上就是測試版本，很多功能都未完善，因為是屬於軟體版本週期中的最初階
+
+段。這階段通常會由開發者下去做測試。
+
+### Beta
+
+Beta 版本是最早對外公開的軟體版本，由一般大眾協助測試，通常 Beta 版本包含所有的功能，但
+
+可能會有一些已知的 bug，Beta 版本有時候也會作為測試市場對產品的反應。
+
+### Release Candidate
+
+Release Candidate（ 簡稱 RC ），通常這版本會成為最終產品候選的版本，這階段通常不會有嚴重
+
+的 bug，有些開源軟體會推出 RC2，而 RC2 則會成為正式版本。
+
+### Release to Manufacting
+
+Release to Manufacting（ 簡稱 RTM ），這版本基本上是已經要上線了。
+
+### General availability
+
+General availability（ 簡稱 GA ），這階段軟體基本上已機上線了。
+
+## Job chaining in Jenkins
+
+依照文章最開始的 CI / CD 介紹的圖，使用簡單 Build -> Deploy -> Test 的 workflow，
+
+依照這個 workflow，我將介紹 Jenkins 的 Job chaining
+
+* [Youtube Tutorial PART 9 - Jenkins Job chaining 實戰](xxx)
+
+## Build / Delivery Pipeline Plugin
+
+剛剛介紹了 Job chaining 的概念，接下來要推薦大家可以將 Job chaining 視覺化的套件。
+
+### Delivery Pipeline Plugin
+
+* [Youtube Tutorial PART 10 - Jenkins + Build Delivery tutorial](xxx)
+
+[Delivery Pipeline Plugin](https://wiki.jenkins.io/display/JENKINS/Delivery+Pipeline+Plugin)
+
+Delivery Pipeline Plugin 要求 job 要有 downstream/upstream relationships （上下游的關係）。
+
+### Build Pipeline Plugin
+
+* [Youtube Tutorial PART 11 - Jenkins + Build Pipeline tutorial](xxx)
+
+[Build Pipeline Plugin](https://wiki.jenkins.io/display/JENKINS/Build+Pipeline+Plugin)
+
+## Remote access API
+
+建議看影片，實戰給大家看會比較有感覺 😁
+
+* [Youtube Tutorial PART 12 - Jenkins +  Remote access API tutorial](xxx)
+
+可參考 [Remote access API](https://wiki.jenkins.io/display/JENKINS/Remote+access+API)。
+
+主要是我們可以透過 terminal 呼叫 API，達到幫我們 build 的功能。
+
+如何取得自己的 User ID 以及 API Token ，請先點選右上角
+
+![](https://i.imgur.com/vEHGxH6.png)
+
+設定 -> API Token
+
+![](https://i.imgur.com/ZgfPxpK.png)
+
+點選顯示 API Token 後，
+
+![](https://i.imgur.com/35Z4rao.png)
+
+溫馨小提醒  :heart:
+
+以下使用 curl 來當做範例，如果你是 windows 用戶，
+
+請自己安裝 curl，這邊就不再做介紹了☺️
+
+官方範例
+
+```cmd
+curl -X POST JENKINS_URL/job/JOB_NAME/build \
+  --user USER:TOKEN \
+  --data-urlencode json='{"parameter": [{"name":"id", "value":"123"}, {"name":"verbosity", "value":"high"}]}'
+```
+
+範例，假設 job 為 demo
+
+```cmd
+curl -X POST http://localhost:8080/job/demo \
+   --user twtrubiks:8d3215553ca9623300f4967827c61291
+```
+
+如果在 terminal 中輸入後，什麼都沒發生，就代表成功了（ 但通常應該都會有錯誤😅 ），
+
+如果，你看到以下錯誤
+
+```cmd
+....
+<title>Error 403 No valid crumb was included in the request</title>
+....
+```
+
+![](https://i.imgur.com/QYhNler.png)
+
+就代表你有啟動比較安全的機制 CSRF Protection（ 預設是啟動的 ）。
+
+要如何解決呢？ 請繼續往下看😊
+
+### CSRF Protection
+
+主要是防止 CSRF 攻擊，
+
+如果不知道什麼是 CSRF ，可參考我之前寫的 [CSRF-tutorial 📝](https://github.com/twtrubiks/CSRF-tutorial)
+
+管理 Jenkins -> 設定全域安全性
+
+![](https://i.imgur.com/78mW8qh.png)
+
+防範 CSRF 入侵預設有被打勾
+
+![](https://i.imgur.com/auFI5Uy.png)
+
+把打勾取消，就可以用剛剛的方法了。
+
+但是，如果我還是希望打勾防範 CSRF 入侵，那我該怎麼辦呢😬
+
+這時候，必須先得到 Jenkins-Crumb
+
+```cmd
+curl -s -u twtrubiks:8d3215553ca9623300f4967827c61291  http://localhost:8080/crumbIssuer/api/json
+```
+
+![](https://i.imgur.com/WgrbIKi.png)
+
+然後再將 Jenkins-Crumb 的值帶進去，如下（ 假設 job 為 demo ）
+
+```cmd
+curl -X POST http://localhost:8080/job/demo/build --user twtrubiks:8d3215553ca9623300f4967827c61291  -H "Jenkins-Crumb:6fbe69cd42a261330cb37e74af1ed1d1"
+```
+
+![](https://i.imgur.com/xwmGGO2.png)
+
+如果沒跳出任何資訊 ( 有跳訊息通常是有錯誤 )，就代表成功了👍
+
+![](https://i.imgur.com/lqb8HQL.png)
+
+你可以回到你的 Jenkins ，你會發現他自動開始 build 了 :satisfied:
 
 ## 後記：
 
