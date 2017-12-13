@@ -16,10 +16,10 @@
 * [Youtube Tutorial PART 6 - Jenkins + BitBucket private repo 實戰](https://youtu.be/S6Hfcm_xrnE)
 * [Youtube Tutorial PART 7 - Jenkins + Notifications - Send Email 實戰](https://youtu.be/MWWBleOtqVk)
 * [Youtube Tutorial PART 8 - Jenkins + Slack 實戰](https://youtu.be/jmVRb81KpUk)
-* [Youtube Tutorial PART 9 - Jenkins Job chaining 實戰](xxx)
-* [Youtube Tutorial PART 10 - Jenkins + Build Delivery tutorial](xxx)
-* [Youtube Tutorial PART 11 - Jenkins + Build Pipeline tutorial](xxx)
-* [Youtube Tutorial PART 12 - Jenkins +  Remote access API tutorial](xxx)
+* [Youtube Tutorial PART 9 - Jenkins Job chaining tutorial](https://youtu.be/FOhxViut4cI)
+* [Youtube Tutorial PART 10 - Jenkins + Delivery Pipeline tutorial](https://youtu.be/kBAAtMOclv8)
+* [Youtube Tutorial PART 11 - Jenkins + Build Pipeline tutorial](https://youtu.be/Dk4busLipS0)
+* [Youtube Tutorial PART 12 - Jenkins +  Remote access API tutorial](https://youtu.be/p7uxurX4MnI)
 
 ## CI / CD 介紹
 
@@ -520,7 +520,7 @@ General availability（ 簡稱 GA ），這階段軟體基本上已機上線了�
 
 依照這個 workflow，我將介紹 Jenkins 的 Job chaining
 
-* [Youtube Tutorial PART 9 - Jenkins Job chaining 實戰](xxx)
+* [Youtube Tutorial PART 9 - Jenkins Job chaining tutorial](https://youtu.be/FOhxViut4cI)
 
 ## Build / Delivery Pipeline Plugin
 
@@ -528,7 +528,7 @@ General availability（ 簡稱 GA ），這階段軟體基本上已機上線了�
 
 ### Delivery Pipeline Plugin
 
-* [Youtube Tutorial PART 10 - Jenkins + Build Delivery tutorial](xxx)
+* [Youtube Tutorial PART 10 - Jenkins + Delivery Pipeline tutorial](https://youtu.be/kBAAtMOclv8)
 
 [Delivery Pipeline Plugin](https://wiki.jenkins.io/display/JENKINS/Delivery+Pipeline+Plugin)
 
@@ -536,7 +536,7 @@ Delivery Pipeline Plugin 要求 job 要有 downstream/upstream relationships （
 
 ### Build Pipeline Plugin
 
-* [Youtube Tutorial PART 11 - Jenkins + Build Pipeline tutorial](xxx)
+* [Youtube Tutorial PART 11 - Jenkins + Build Pipeline tutorial](https://youtu.be/Dk4busLipS0)
 
 [Build Pipeline Plugin](https://wiki.jenkins.io/display/JENKINS/Build+Pipeline+Plugin)
 
@@ -544,7 +544,7 @@ Delivery Pipeline Plugin 要求 job 要有 downstream/upstream relationships （
 
 建議看影片，實戰給大家看會比較有感覺 😁
 
-* [Youtube Tutorial PART 12 - Jenkins +  Remote access API tutorial](xxx)
+* [Youtube Tutorial PART 12 - Jenkins +  Remote access API tutorial](https://youtu.be/p7uxurX4MnI)
 
 可參考 [Remote access API](https://wiki.jenkins.io/display/JENKINS/Remote+access+API)。
 
