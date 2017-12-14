@@ -564,7 +564,7 @@ Delivery Pipeline Plugin 要求 job 要有 downstream/upstream relationships （
 
 溫馨小提醒  :heart:
 
-以下使用 curl 來當做範例，如果你是 windows 用戶，
+以下使用 curl 來當做範例，如果你是 windows 或 Linux 用戶，
 
 請自己安裝 curl，這邊就不再做介紹了☺️
 
@@ -581,6 +581,35 @@ curl -X POST JENKINS_URL/job/JOB_NAME/build \
 ```cmd
 curl -X POST http://localhost:8080/job/demo \
    --user twtrubiks:8d3215553ca9623300f4967827c61291
+```
+
+`-d` 參數說明
+
+> -d/--data , Send specified data in POST request.
+
+`--data-urlencode` 參數說明
+
+> --data-urlencode , (HTTP) This posts data, similar to the other -d, --data options with the exception that this performs URL-encoding.
+
+`-u` 參數說明
+
+> -u/--user <user[:password]> , Set user and password
+
+範例
+
+```cmd
+curl --user name:password http://www.example.com
+curl -u user:password http://www.example.com
+```
+
+`-X` 參數說明
+
+> -X/--request The request method to use.
+
+範例
+
+```cmd
+curl -X POST http://www.example.com
 ```
 
 如果在 terminal 中輸入後，什麼都沒發生，就代表成功了（ 但通常應該都會有錯誤😅 ），
@@ -625,6 +654,10 @@ curl -s -u twtrubiks:8d3215553ca9623300f4967827c61291  http://localhost:8080/cru
 
 ![](https://i.imgur.com/WgrbIKi.png)
 
+`-s` 參數說明
+
+> -s/--silent Silent mode. Don't output anything
+
 然後再將 Jenkins-Crumb 的值帶進去，如下（ 假設 job 為 demo ）
 
 ```cmd
@@ -632,6 +665,10 @@ curl -X POST http://localhost:8080/job/demo/build --user twtrubiks:8d3215553ca96
 ```
 
 ![](https://i.imgur.com/xwmGGO2.png)
+
+`-H` 參數說明
+
+> -H/--header  Custom header
 
 如果沒跳出任何資訊 ( 有跳訊息通常是有錯誤 )，就代表成功了👍
 
