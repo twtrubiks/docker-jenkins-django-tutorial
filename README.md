@@ -676,6 +676,24 @@ curl -X POST http://localhost:8080/job/demo/build --user twtrubiks:8d3215553ca96
 
 你可以回到你的 Jenkins ，你會發現他自動開始 build 了 :satisfied:
 
+### SSH Plugin - SSH remote hosts
+
+這個 Jenkins Plugin 可以幫助你遠端 ssh 到主機上執行 script,
+
+請到 Manage Jenkins -> Manage Plugins 底下安裝 Plugin
+
+![alt tag](https://i.imgur.com/EDE9SB8.png)
+
+之後到 Manage Jenkins -> System Configuration -> Configure System 底下
+
+設定你的 SSH remote hosts
+
+![alt tag](https://i.imgur.com/sBWXYfB.png)
+
+最後你到一般的 job 裡就會看到 Execute shell script on remote host using ssh
+
+![alt tag](https://i.imgur.com/dI9PD44.png)
+
 ## 後記：
 
 這次和大家介紹 Jenkins，相信大家一定覺得 Jenkins 超棒 :heart_eyes: ，我也只介紹比較基本的功能，如果要全部介紹完，
