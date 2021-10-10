@@ -442,23 +442,15 @@ Install
 
 ![](https://i.imgur.com/LGp8yn0.png)
 
-找到 Global Slack Notifier Settings，將 **Base URL**、**Integration Token**、**Chnnel** 貼上去，
+找到 Slack, 設定 *Workspace* *Credential* *Default channel / member id*
 
-Integration Token 也有兩種方式設定
+![](https://i.imgur.com/jUmj4c3.png)
 
-第一種
-
-![](https://i.imgur.com/dxHZk1S.png)
-
-第二種 Integration Token Credential ID ( 使用這個安全一點:relaxed: )
-
-Add Credential
+點選 Add Credential ( 使用這個安全一點:relaxed: )
 
 ![](https://i.imgur.com/f3q4kzC.png)
 
-![](https://i.imgur.com/HR4BMFv.png)
-
-可以點 Test Connection 測試看看是否設定正確，如果正確會顯示 Success :grin:
+最後可以點 Test Connection 測試看看是否設定正確，如果正確會顯示 Success :grin:
 
 接著再回到 jenkins 專案裡的組態
 
@@ -693,6 +685,34 @@ curl -X POST http://localhost:8080/job/demo/build --user twtrubiks:8d3215553ca96
 最後你到一般的 job 裡就會看到 Execute shell script on remote host using ssh
 
 ![alt tag](https://i.imgur.com/dI9PD44.png)
+
+順便補充一下, aws ssh key 設定的部份,
+
+Kind 的部份選擇 SSH Username with private key
+
+![alt tag](https://i.imgur.com/79D9SbG.png)
+
+這邊再把你的 key 貼上去
+
+![alt tag](https://i.imgur.com/8r8adqF.png)
+
+### 設定時區
+
+Manage Jenkins -> Tools and Actions -> Script Console
+
+直接執行以下的指令
+
+```cmd
+System.setProperty('user.timezone', 'Asia/Taipei')
+```
+
+Manage Jenkins -> Status Information -> System Information
+
+![alt tag](https://i.imgur.com/mh5Touq.png)
+
+Manage Jenkins -> Manage Users -> 選擇 user -> User Defined Time Zone
+
+![alt tag](https://i.imgur.com/byNu4JT.png)
 
 ## 後記：
 
