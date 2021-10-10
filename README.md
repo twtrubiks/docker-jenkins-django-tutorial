@@ -8,18 +8,24 @@
 
 [Django-REST-framework 基本教學 - 從無到有 DRF-Beginners-Guide 📝](https://github.com/twtrubiks/django-rest-framework-tutorial)
 
-* [Youtube Tutorial PART 1 - CI ( Continuous Integration ) / CD (Continuous Delivery / Continuous Deployment) 介紹](https://youtu.be/wJlE0aFluY4)
-* [Youtube Tutorial PART 2 - Docker + Jenkins + Django + Postgres 設定](https://youtu.be/fjwIVCywX2A)
-* [Youtube Tutorial PART 3 - Jenkins 基本設定](https://youtu.be/27rmiKGrG2M)
-* [Youtube Tutorial PART 4 - Jenkins + GitHub Integration 實戰](https://youtu.be/AYgw5NXAeNY)
-* [Youtube Tutorial PART 5 - Jenkins + GitHub Webhooks 實戰](https://youtu.be/ymfTEPxKRqQ)
-* [Youtube Tutorial PART 6 - Jenkins + BitBucket private repo 實戰](https://youtu.be/S6Hfcm_xrnE)
-* [Youtube Tutorial PART 7 - Jenkins + Notifications - Send Email 實戰](https://youtu.be/MWWBleOtqVk)
-* [Youtube Tutorial PART 8 - Jenkins + Slack 實戰](https://youtu.be/jmVRb81KpUk)
-* [Youtube Tutorial PART 9 - Jenkins Job chaining tutorial](https://youtu.be/FOhxViut4cI)
-* [Youtube Tutorial PART 10 - Jenkins + Delivery Pipeline tutorial](https://youtu.be/kBAAtMOclv8)
-* [Youtube Tutorial PART 11 - Jenkins + Build Pipeline tutorial](https://youtu.be/Dk4busLipS0)
-* [Youtube Tutorial PART 12 - Jenkins +  Remote access API tutorial](https://youtu.be/p7uxurX4MnI)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#ci--cd-%E4%BB%8B%E7%B4%B9) - [Youtube Tutorial PART 1 - CI ( Continuous Integration ) / CD (Continuous Delivery / Continuous Deployment) 介紹](https://youtu.be/wJlE0aFluY4)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#docker--jenkins--django--postgres-%E8%A8%AD%E5%AE%9A) - [Youtube Tutorial PART 2 - Docker + Jenkins + Django + Postgres 設定](https://youtu.be/fjwIVCywX2A)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#docker--jenkins--django--postgres-%E5%AF%A6%E6%88%B0%E6%95%99%E5%AD%B8) - [Youtube Tutorial PART 3 - Jenkins 基本設定](https://youtu.be/27rmiKGrG2M)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#jenkins--github-integration-plugin) - [Youtube Tutorial PART 4 - Jenkins + GitHub Integration 實戰](https://youtu.be/AYgw5NXAeNY)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#jenkins--github-webhooks-%E5%AF%A6%E6%88%B0) - [Youtube Tutorial PART 5 - Jenkins + GitHub Webhooks 實戰](https://youtu.be/ymfTEPxKRqQ)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#jenkins--bitbucket-private-repo-%E5%AF%A6%E6%88%B0) - [Youtube Tutorial PART 6 - Jenkins + BitBucket private repo 實戰](https://youtu.be/S6Hfcm_xrnE)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#jenkins--notifications---send-email) - [Youtube Tutorial PART 7 - Jenkins + Notifications - Send Email 實戰](https://youtu.be/MWWBleOtqVk)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#jenkins--slack) - [Youtube Tutorial PART 8 - Jenkins + Slack 實戰](https://youtu.be/jmVRb81KpUk)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#job-chaining-in-jenkins) - [Youtube Tutorial PART 9 - Jenkins Job chaining tutorial](https://youtu.be/FOhxViut4cI)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#delivery-pipeline-plugin) - [Youtube Tutorial PART 10 - Jenkins + Delivery Pipeline tutorial](https://youtu.be/kBAAtMOclv8)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#build-pipeline-plugin) - [Youtube Tutorial PART 11 - Jenkins + Build Pipeline tutorial](https://youtu.be/Dk4busLipS0)
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#remote-access-api) - [Youtube Tutorial PART 12 - Jenkins +  Remote access API tutorial](https://youtu.be/p7uxurX4MnI)
+
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#csrf-protection) - CSRF Protection
+
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#ssh-plugin---ssh-remote-hosts) - SSH Plugin - SSH remote hosts
+
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#%E8%A8%AD%E5%AE%9A%E6%99%82%E5%8D%80) - 設定時區
 
 ## CI / CD 介紹
 
@@ -116,7 +122,7 @@ services:
         - db
 
     jenkins:
-          build: ./jenkins
+          image: jenkins/jenkins:lts-jdk11
           restart: always
           ports:
               - "8080:8080"
@@ -159,7 +165,7 @@ services:
         - db
 
     jenkins:
-          build: ./jenkins
+          image: jenkins/jenkins:lts-jdk11
           restart: always
           ports:
               - "8080:8080"
