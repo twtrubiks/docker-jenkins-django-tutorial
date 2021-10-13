@@ -1,0 +1,61 @@
+version: '3.5'
+services:
+
+    nginx-proxy:
+      image: jwilder/nginx-proxy:alpine
+      restart: always
+      container_name: nginx-proxy
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+        - html:/usr/share/nginx/html
+        - dhparam:/etc/nginx/dhparam
+        - vhost:/etc/nginx/vhost.d
+        - certs:/etc/nginx/certs:ro
+      networks:
+        - proxy
+
+    # nginx-proxy-letsencrypt:
+    #   image: jrcs/letsencrypt-nginx-proxy-companion
+    #   restart: always
+    #   depends_on:
+    #     - "nginx-proxy"
+    #   volumes:
+    #     - certs:/etc/nginx/certs
+    #     - vhost:/etc/nginx/vhost.d
+    #     - html:/usr/share/nginx/html
+    #     - /var/run/docker.sock:/var/run/docker.sock:ro
+    #   environment:
+    #     - ACME_CA_URI=https://acme-staging-v02.api.letsencrypt.org/directory
+    #     - NGINX_PROXY_CONTAINER=nginx-proxy
+    #   networks:
+    #     - proxy
+
+    jenkins:
+      image: jenkins/jenkins:lts-jdk11
+      environment:
+        JAVA_OPTS: "-Djava.awt.headless=true -Xmx512m -Xms512m -Djava.util.logging.config.file=/var/jenkins_home/log.properties"
+      restart: always
+      ports:
+          - "50000"
+      volumes:
+          - jenkins_home:/var/jenkins_home
+      environment:
+          - VIRTUAL_HOST=127.0.0.1 # your server ip
+          - VIRTUAL_NETWORK=nginx-proxy
+          - VIRTUAL_PORT=8080
+      networks:
+          - proxy
+
+networks:
+  proxy:
+    name: self-nginx-proxy
+
+volumes:
+    jenkins_home:
+    certs:
+    html:
+    vhost:
+    dhparam:

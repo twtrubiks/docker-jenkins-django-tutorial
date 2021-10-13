@@ -29,6 +29,8 @@
 
 * [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#%E8%A8%AD%E5%AE%9A%E6%AC%8A%E9%99%90-security) - 設定權限 Security
 
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial/tree/master/jenkins_nginx) - jenkins 搭配 nginx
+
 ## CI / CD 介紹
 
 在開始介紹前，先帶大家了解幾個名詞，相信大家一定常常聽到別人說 CI / CD，
@@ -766,7 +768,7 @@ Manage Jenkins -> Manage Users -> 選擇 user -> User Defined Time Zone
 ## Reference
 
 * [https://docs.docker.com/](https://docs.docker.com/)
-* [docker jenkins](https://hub.docker.com/_/jenkins/)
+* [docker jenkins](https://hub.docker.com/r/jenkins/jenkins)
 
 ## Donation
 
