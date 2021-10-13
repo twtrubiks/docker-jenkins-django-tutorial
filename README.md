@@ -27,6 +27,8 @@
 
 * [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#%E8%A8%AD%E5%AE%9A%E6%99%82%E5%8D%80) - 設定時區
 
+* [目錄](https://github.com/twtrubiks/docker-jenkins-django-tutorial#%E8%A8%AD%E5%AE%9A%E6%AC%8A%E9%99%90-security) - 設定權限 Security
+
 ## CI / CD 介紹
 
 在開始介紹前，先帶大家了解幾個名詞，相信大家一定常常聽到別人說 CI / CD，
@@ -720,6 +722,26 @@ Manage Jenkins -> Manage Users -> 選擇 user -> User Defined Time Zone
 
 ![alt tag](https://i.imgur.com/byNu4JT.png)
 
+### 設定權限 Security
+
+之後到 Manage Jenkins -> Security -> Configure Global Security,
+
+找到 Authorization 之後選擇 Project-based Matrix Authorization Strategy
+
+這個設定是依據專案分權限, 你可以依照自己的需求設定
+
+![alt tag](https://i.imgur.com/aC0lr98.png)
+
+然後因為你是選擇依照專案分權限,
+
+你在 job 中的設定會多出 Enable project-based security,
+
+可選擇是否繼承上面的 Security 設定,
+
+也可以依照 user 設定 (像是這個專案只有誰可以看到這樣)
+
+![alt tag](https://i.imgur.com/y35InG0.png)
+
 ## 後記：
 
 這次和大家介紹 Jenkins，相信大家一定覺得 Jenkins 超棒 :heart_eyes: ，我也只介紹比較基本的功能，如果要全部介紹完，
@@ -736,6 +758,7 @@ Manage Jenkins -> Manage Users -> 選擇 user -> User Defined Time Zone
 
 ## 執行環境
 
+* Linux
 * Mac
 * Python 3.6.2
 * windows 10
